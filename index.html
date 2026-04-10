@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>産後エクササイズ 感覚統合あそび | ゆいどころ</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;700;900&family=Shippori+Mincho:wght@400;600;800&family=DM+Serif+Display:ital@0;1&display=swap');
+
+  :root {
+    --cream: #FDF6EC;
+    --peach: #F5C4A1;
+    --terracotta: #D4775A;
+    --rust: #B5512A;
+    --sage: #8BA888;
+    --sage-light: #C8D9C5;
+    --brown: #5C3D2E;
+    --warm-white: #FFFAF4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    color: var(--brown);
+  }
+
+  .page {
+    max-width: 640px;
+    margin: 0 auto;
+    background: var(--warm-white);
+  }
+
+  .top-bar {
+    background: var(--brown);
+    padding: 8px 0;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    color: var(--peach);
+  }
+
+  .hero {
+    position: relative;
+    padding: 52px 44px 40px;
+    background: var(--cream);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--peach) 0%, transparent 65%);
+    opacity: 0.45;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -50px; left: -50px;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--sage-light) 0%, transparent 65%);
+    opacity: 0.55;
+  }
+
+  .price-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--terracotta);
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 22px;
+    position: relative; z-index: 1;
+  }
+
+  .title-en {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: var(--terracotta);
+    margin-bottom: 8px;
+    position: relative; z-index: 1;
+  }
+
+  .title-ja {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1.2;
+    position: relative; z-index: 1;
+  }
+
+  .title-sub {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--sage);
+    margin-top: 10px;
+    position: relative; z-index: 1;
+  }
+
+  section {
+    padding: 36px 44px;
+  }
+
+  section + section {
+    border-top: 1.5px dashed var(--peach);
+  }
+
+  .section-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--terracotta);
+    margin-bottom: 18px;
+    text-transform: uppercase;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 4px 44px 28px;
+  }
+
+  .tag {
+    background: var(--sage-light);
+    color: var(--brown);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 5px 14px;
+    border-radius: 20px;
+  }
+
+  .tag.accent { background: var(--peach); color: var(--rust); }
+
+  .concept-lead {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 2;
+    margin-bottom: 20px;
+    color: var(--brown);
+  }
+
+  .concept-lead em {
+    font-style: normal;
+    color: var(--terracotta);
+  }
+
+  .concept-body {
+    font-size: 14.5px;
+    line-height: 2.2;
+    color: #6B4F3F;
+  }
+
+  .feature-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .feature-item:last-child { margin-bottom: 0; }
+
+  .f-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+
+  .f-text { font-size: 14px; line-height: 1.85; color: #5C3D2E; }
+
+  .f-text strong {
+    display: block;
+    color: var(--terracotta);
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+
+  .schedule-box {
+    background: var(--brown);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+
+  .schedule-head {
+    background: var(--rust);
+    padding: 11px 24px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: white;
+    text-align: center;
+  }
+
+  .schedule-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .schedule-item:last-child { border-bottom: none; }
+
+  .s-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    color: var(--peach);
+    width: 30px;
+  }
+
+  .s-info { margin-left: 16px; }
+
+  .s-date { font-size: 16px; font-weight: 700; color: white; }
+
+  .s-time { font-size: 12px; color: var(--peach); margin-top: 2px; letter-spacing: 0.06em; }
+
+  .multi-ok {
+    background: var(--sage-light);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 13px;
+    line-height: 1.85;
+    color: var(--brown);
+    text-align: center;
+  }
+
+  .multi-ok strong { color: var(--sage); font-weight: 700; }
+
+  .venue-box {
+    background: #FEF3E8;
+    border-radius: 12px;
+    padding: 20px 22px;
+  }
+
+  .venue-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 4px;
+  }
+
+  .venue-sub {
+    font-size: 13px;
+    color: #8B6F5E;
+    margin-bottom: 14px;
+  }
+
+  .map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--terracotta);
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 9px 20px;
+    border-radius: 24px;
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    transition: background 0.2s;
+  }
+
+  .map-link:hover { background: var(--rust); }
+
+  .reason-box {
+    background: #FEF3E8;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 12px 12px 0;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    font-size: 14.5px;
+    line-height: 2.1;
+    color: var(--brown);
+  }
+
+  .reason-box p + p { margin-top: 14px; }
+
+  .reason-note {
+    background: var(--sage-light);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--brown);
+  }
+
+  .reason-note strong { color: var(--sage); font-weight: 700; }
+
+  .detail-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--peach);
+    gap: 16px;
+    font-size: 14px;
+  }
+
+  .detail-row:last-child { border-bottom: none; }
+
+  .d-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--terracotta);
+    min-width: 58px;
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .d-val { line-height: 1.8; color: var(--brown); }
+
+  .form-section {
+    background: var(--cream);
+    padding: 40px 44px;
+    border-top: 2px solid var(--peach);
+  }
+
+  .form-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 22px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .form-subtitle {
+    font-size: 13px;
+    color: #8B6F5E;
+    text-align: center;
+    margin-bottom: 28px;
+    line-height: 1.9;
+  }
+
+  .form-wrapper {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(92,61,46,0.10);
+  }
+
+  .form-placeholder {
+    padding: 48px 32px;
+    text-align: center;
+  }
+
+  .form-placeholder .icon { font-size: 40px; margin-bottom: 16px; }
+
+  .form-placeholder p {
+    font-size: 13px;
+    line-height: 2;
+    color: #8B6F5E;
+    margin-bottom: 20px;
+  }
+
+  .form-btn {
+    display: inline-block;
+    background: var(--terracotta);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 14px 36px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .form-btn:hover { background: var(--rust); }
+
+  .form-notice {
+    font-size: 11.5px;
+    color: #A08070;
+    text-align: center;
+    margin-top: 14px;
+    line-height: 1.9;
+  }
+
+  .footer {
+    background: var(--brown);
+    padding: 20px 44px;
+    text-align: center;
+    color: var(--peach);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    line-height: 2;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero, section, .form-section { animation: fadeUp 0.55s ease both; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top-bar">ゆいどころ　産後エクササイズ</div>
+
+  <div class="hero">
+    <div class="price-badge">🪙 ワンコイン 500円</div>
+    <div class="title-en">Sensory Integration Play</div>
+    <div class="title-ja">感覚統合<br>あそびエクササイズ</div>
+    <div class="title-sub">産後ママのための 遊びで動く1時間</div>
+  </div>
+
+  <div class="tags">
+    <span class="tag accent"># 遊びで動く</span>
+    <span class="tag"># 感覚統合</span>
+    <span class="tag accent"># 産後の体に</span>
+    <span class="tag"># お子様同伴OK</span>
+    <span class="tag accent"># ヨガでも筋トレでもない</span>
+  </div>
+
+  <section>
+    <div class="section-label">Concept</div>
+    <p class="concept-lead">
+      ヨガでも、ピラティスでもない。<br>
+      <em>「遊び」を通して、体を動かす1時間。</em>
+    </p>
+    <p class="concept-body">
+      産後って、体がなんとなく重たかったり、<br>
+      思うように動けなかったりすること、ありませんか？<br><br>
+      妊娠中から産後にかけて、体はほんとうに大きく変わります。<br>
+      でもそれって、自分ではなかなか気づけないし、<br>
+      教えてもらえる機会もあんまりないんですよね。<br><br>
+      このクラスでは、難しいことは一切なし。<br>
+      遊びながら、体をいっぱい動かしてもらいます。<br>
+      動いていくうちに「あ、なんか変わった」って<br>
+      感じてもらえたら、うれしいです☺️
+    </p>
+  </section>
+
+  <section>
+    <div class="section-label">What to expect</div>
+    <div class="feature-item">
+      <div class="f-icon">🎲</div>
+      <div class="f-text">
+        <strong>「遊び」でできた感覚統合エクササイズ</strong>
+        「こなす」運動ではなく、体を感じながら楽しむ動きをたっぷりご用意。気づいたら汗をかいてる！くらいの強度も含みます。
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="f-icon">🌿</div>
+      <div class="f-text">
+        <strong>産後の体に寄り添ったプログラム</strong>
+        産後に起こる体の変化をふまえた内容です。専門的な説明はナシ、体で感じることを大切にします。
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="f-icon">👶</div>
+      <div class="f-text">
+        <strong>畳のお部屋でお子様と一緒に</strong>
+        託児はありませんが、畳敷きの広いお部屋なので赤ちゃん・お子様連れOK。みんなでワイワイ楽しみましょう☺️
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="f-icon">💪</div>
+      <div class="f-text">
+        <strong>結構、動きます！</strong>
+        しっかり体を使う場面もあります。動きやすい服装・お着替えのご準備をおすすめします。
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Schedule</div>
+    <div class="schedule-box">
+      <div class="schedule-head">— 開催日程（各回60分）—</div>
+      <div class="schedule-item">
+        <div class="s-num">1</div>
+        <div class="s-info">
+          <div class="s-date">4月23日（木）</div>
+          <div class="s-time">13:30 〜 14:30</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="s-num">2</div>
+        <div class="s-info">
+          <div class="s-date">4月28日（火）</div>
+          <div class="s-time">13:30 〜 14:30</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="s-num">3</div>
+        <div class="s-info">
+          <div class="s-date">5月1日（金）</div>
+          <div class="s-time">10:00 〜 11:00</div>
+        </div>
+      </div>
+    </div>
+    <div class="multi-ok">
+      <strong>✅ 複数回・全3回のご参加も大歓迎！</strong><br>
+      継続して参加いただくほど、体の変化を感じやすくなります。<br>
+      気になる日程すべてにお申し込みいただけます☺️
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Venue</div>
+    <div class="venue-box">
+      <div class="venue-name">🏛 北中城村中央公民館</div>
+      <div class="venue-sub">畳の間 ／ 沖縄県北中城村</div>
+      <a href="https://maps.app.goo.gl/QmsM3MTfZLqxBN75A?g_st=ic" target="_blank" class="map-link">
+        📍 Googleマップで見る
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Why ¥500?</div>
+    <div class="reason-box">
+      <p>
+        このクラスをワンコイン500円でご提供しているのは、<br>
+        みなさんにひとつお願いがあるためです。
+      </p>
+      <p>
+        クラスの様子を、SNSや専門家向けの勉強会で<br>
+        ご紹介させていただくことがあります。<br>
+        <strong>お顔が映り込まないよう配慮した撮影</strong>になりますので、<br>
+        その点はご安心ください☺️
+      </p>
+      <p>
+        また、ご協力いただける方には、<br>
+        クラスの前後でお身体の動きの変化を<br>
+        記録させていただけると大変嬉しいです。<br>
+        （専門家向けの事例として活用させていただきます）
+      </p>
+    </div>
+    <div class="reason-note">
+      <strong>✅ 撮影・記録は、お申し込み時に選んでいただけます</strong><br>
+      「撮影NG」「記録NG」の方でも、もちろんご参加いただけます。<br>
+      どちらの方もお気軽にどうぞ☺️
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Details</div>
+    <div class="detail-row">
+      <div class="d-label">参加費</div>
+      <div class="d-val">🪙 500円（ワンコイン）当日お支払い</div>
+    </div>
+    <div class="detail-row">
+      <div class="d-label">時間</div>
+      <div class="d-val">各回 60分</div>
+    </div>
+    <div class="detail-row">
+      <div class="d-label">対象</div>
+      <div class="d-val">産後ママ（お子様同伴歓迎）<br>複数回・全3回のご参加もOKです</div>
+    </div>
+    <div class="detail-row">
+      <div class="d-label">会場</div>
+      <div class="d-val">北中城村中央公民館 畳の間</div>
+    </div>
+    <div class="detail-row">
+      <div class="d-label">持ち物</div>
+      <div class="d-val">
+        動きやすい服装・お着替え（必要な方）<br>
+        💧 水分補給のお飲み物<br>
+        🎒 お子様連れの方はお出かけセットもご準備ください
+      </div>
+    </div>
+    <div class="detail-row">
+      <div class="d-label">託児</div>
+      <div class="d-val">なし（畳スペースでお子様と一緒にOK）</div>
+    </div>
+  </section>
+
+  <div class="form-section">
+    <div class="form-title">お申し込みはこちら</div>
+    <div class="form-subtitle">
+      参加希望日・撮影についてのご意向など<br>
+      かんたんなフォームにご記入ください（約1分）
+    </div>
+
+    <div class="form-wrapper">
+      <div class="form-placeholder">
+        <div class="icon">📋</div>
+        <p>
+          Googleフォームのリンクを<br>ここに埋め込みます。<br><br>
+          フォームURL確定後に差し替えてください。
+        </p>
+        <a href="YOUR_GOOGLE_FORM_URL" class="form-btn" target="_blank">
+          申し込みフォームへ →
+        </a>
+      </div>
+      <!--
+      <iframe
+        src="https://docs.google.com/forms/d/e/【フォームID】/viewform?embedded=true"
+        width="100%" height="860" frameborder="0"
+        marginheight="0" marginwidth="0"
+        title="産後エクササイズ申し込みフォーム"
+      >読み込み中…</iframe>
+      -->
+    </div>
+
+    <p class="form-notice">
+      ご不明な点はSNSのDMからもお気軽にどうぞ☺️<br>
+      お申し込み後、詳細をご連絡いたします。
+    </p>
+  </div>
+
+  <div class="footer">
+    ゆいどころ — 女性の健康を、作業療法の視点から<br>
+    北中城村・沖縄
+  </div>
+
+</div>
+</body>
+</html>
