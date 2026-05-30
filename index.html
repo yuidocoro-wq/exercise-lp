@@ -225,7 +225,7 @@
 
   .s-time { font-size: 12px; color: var(--peach); margin-top: 2px; letter-spacing: 0.06em; }
 
-  .multi-ok {
+  .schedule-note {
     background: var(--sage-light);
     border-radius: 10px;
     padding: 14px 18px;
@@ -235,7 +235,7 @@
     text-align: center;
   }
 
-  .multi-ok strong { color: var(--sage); font-weight: 700; }
+  .schedule-note strong { color: var(--sage); font-weight: 700; }
 
   .venue-box {
     background: #FEF3E8;
@@ -273,30 +273,143 @@
 
   .map-link:hover { background: var(--rust); }
 
-  .reason-box {
-    background: #FEF3E8;
-    border-left: 4px solid var(--terracotta);
-    border-radius: 0 12px 12px 0;
-    padding: 22px 24px;
-    margin-bottom: 16px;
-    font-size: 14.5px;
-    line-height: 2.1;
+  /* 継続セクション */
+  .continuation-lead {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.9;
     color: var(--brown);
+    margin-bottom: 20px;
   }
 
-  .reason-box p + p { margin-top: 14px; }
+  .continuation-body {
+    font-size: 14px;
+    line-height: 2.1;
+    color: #6B4F3F;
+    margin-bottom: 20px;
+  }
 
-  .reason-note {
+  .continuation-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .continuation-item {
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--brown);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .continuation-item span {
+    font-size: 18px;
+  }
+
+  .continuation-note {
     background: var(--sage-light);
     border-radius: 10px;
     padding: 16px 20px;
-    font-size: 13px;
+    font-size: 13.5px;
     line-height: 1.9;
     color: var(--brown);
   }
 
-  .reason-note strong { color: var(--sage); font-weight: 700; }
+  /* 料金カード */
+  .price-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
 
+  .price-card {
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .price-card.trial {
+    background: #FEF3E8;
+    border: 1.5px solid var(--peach);
+  }
+
+  .price-card.single {
+    background: var(--warm-white);
+    border: 1.5px solid #E8D5C4;
+  }
+
+  .price-card.course {
+    background: var(--brown);
+    border: 1.5px solid var(--brown);
+  }
+
+  .price-card-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--brown);
+    line-height: 1.5;
+  }
+
+  .price-card.course .price-card-label {
+    color: var(--peach);
+  }
+
+  .price-card-sub {
+    font-size: 11px;
+    color: #A08070;
+    margin-top: 2px;
+    font-weight: 400;
+  }
+
+  .price-card.course .price-card-sub {
+    color: rgba(245,196,161,0.7);
+  }
+
+  .price-card-amount {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--terracotta);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .price-card.course .price-card-amount {
+    color: var(--peach);
+  }
+
+  .price-badge-tag {
+    display: inline-block;
+    background: var(--terracotta);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 3px 10px;
+    border-radius: 10px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  .price-hint {
+    font-size: 12.5px;
+    color: #8B6F5E;
+    text-align: center;
+    line-height: 1.9;
+    padding: 4px 0;
+  }
+
+  /* 詳細 */
   .detail-row {
     display: flex;
     align-items: flex-start;
@@ -320,6 +433,62 @@
 
   .d-val { line-height: 1.8; color: var(--brown); }
 
+  /* Voice 横スクロール */
+  .voice-scroll {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .voice-scroll::-webkit-scrollbar { display: none; }
+
+  .voice-card {
+    flex-shrink: 0;
+    width: 240px;
+    background: #FEF3E8;
+    border-radius: 14px;
+    padding: 20px 18px;
+  }
+
+  .voice-card:nth-child(even) {
+    background: #F3F7F3;
+  }
+
+  .voice-quote {
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--brown);
+    margin-bottom: 12px;
+  }
+
+  .voice-quote::before {
+    content: '"';
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: var(--peach);
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .voice-who {
+    font-size: 11.5px;
+    color: #A08070;
+    letter-spacing: 0.06em;
+  }
+
+  .voice-scroll-hint {
+    font-size: 11px;
+    color: #B09080;
+    text-align: right;
+    margin-top: 8px;
+    letter-spacing: 0.04em;
+  }
+
+  /* フォーム */
   .form-section {
     background: var(--cream);
     padding: 40px 44px;
@@ -347,20 +516,6 @@
     border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 4px 24px rgba(92,61,46,0.10);
-  }
-
-  .form-placeholder {
-    padding: 48px 32px;
-    text-align: center;
-  }
-
-  .form-placeholder .icon { font-size: 40px; margin-bottom: 16px; }
-
-  .form-placeholder p {
-    font-size: 13px;
-    line-height: 2;
-    color: #8B6F5E;
-    margin-bottom: 20px;
   }
 
   .form-btn {
@@ -409,13 +564,15 @@
 
   <div class="top-bar">ゆいどころ　産後エクササイズ</div>
 
+  <!-- Hero -->
   <div class="hero">
-    <div class="price-badge">🪙 ワンコイン 500円</div>
+    <div class="price-badge">🪙 はじめての方 初回体験 500円</div>
     <div class="title-en">Sensory Integration Play</div>
     <div class="title-ja">感覚統合<br>あそびエクササイズ</div>
     <div class="title-sub">産後ママのための 遊びで動く1時間</div>
   </div>
 
+  <!-- Tags -->
   <div class="tags">
     <span class="tag accent"># 遊びで動く</span>
     <span class="tag"># 感覚統合</span>
@@ -424,6 +581,7 @@
     <span class="tag accent"># ヨガでも筋トレでもない</span>
   </div>
 
+  <!-- Concept -->
   <section>
     <div class="section-label">Concept</div>
     <p class="concept-lead">
@@ -443,6 +601,7 @@
     </p>
   </section>
 
+  <!-- What to expect -->
   <section>
     <div class="section-label">What to expect</div>
     <div class="feature-item">
@@ -475,6 +634,7 @@
     </div>
   </section>
 
+  <!-- Schedule -->
   <section>
     <div class="section-label">Schedule</div>
     <div class="schedule-box">
@@ -482,83 +642,123 @@
       <div class="schedule-item">
         <div class="s-num">1</div>
         <div class="s-info">
-          <div class="s-date">4月23日（木）</div>
+          <div class="s-date">6月12日（金）</div>
           <div class="s-time">13:30 〜 14:30</div>
         </div>
       </div>
       <div class="schedule-item">
         <div class="s-num">2</div>
         <div class="s-info">
-          <div class="s-date">4月28日（火）</div>
+          <div class="s-date">6月18日（木）</div>
           <div class="s-time">13:30 〜 14:30</div>
         </div>
       </div>
       <div class="schedule-item">
         <div class="s-num">3</div>
         <div class="s-info">
-          <div class="s-date">5月1日（金）</div>
+          <div class="s-date">6月22日（月）</div>
+          <div class="s-time">13:30 〜 14:30</div>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="s-num">4</div>
+        <div class="s-info">
+          <div class="s-date">6月30日（火）</div>
           <div class="s-time">10:00 〜 11:00</div>
         </div>
       </div>
     </div>
-    <div class="multi-ok">
-      <strong>✅ 複数回・全3回のご参加も大歓迎！</strong><br>
-      継続して参加いただくほど、体の変化を感じやすくなります。<br>
-      気になる日程すべてにお申し込みいただけます☺️
+    <div class="schedule-note">
+      はじめての方も、継続して通う方も歓迎です。<br>
+      気になる日程からお気軽にどうぞ☺️
     </div>
   </section>
 
+  <!-- Venue -->
   <section>
     <div class="section-label">Venue</div>
     <div class="venue-box">
       <div class="venue-name">🏛 北中城村中央公民館</div>
       <div class="venue-sub">畳の間 ／ 沖縄県北中城村</div>
-      <a href="https://maps.app.goo.gl/QmsM3MTfZLqxBN75A?g_st=ic" target="_blank" class="map-link">
+      <a href="https://share.google/dupulW3WCU1QVog63" target="_blank" class="map-link">
         📍 Googleマップで見る
       </a>
     </div>
   </section>
 
+  <!-- Continuation -->
   <section>
-    <div class="section-label">Why ¥500?</div>
-    <div class="reason-box">
-      <p>
-        このクラスをワンコイン500円でご提供しているのは、<br>
-        みなさんにひとつお願いがあるためです。
-      </p>
-      <p>
-        クラスの様子を、SNSや専門家向けの勉強会で<br>
-        ご紹介させていただくことがあります。<br>
-        <strong>お顔が映り込まないよう配慮した撮影</strong>になりますので、<br>
-        その点はご安心ください☺️
-      </p>
-      <p>
-        また、ご協力いただける方には、<br>
-        クラスの前後でお身体の動きの変化を<br>
-        記録させていただけると大変嬉しいです。<br>
-        （専門家向けの事例として活用させていただきます）
-      </p>
+    <div class="section-label">For Your Body</div>
+    <p class="continuation-lead">
+      続けることで、<br>体はもっと応えてくれる。
+    </p>
+    <p class="continuation-body">
+      1回でも「なんか変わった」と感じる方はいます。<br>
+      でも感覚統合は、繰り返しの中で体に馴染んでいくもの。<br>
+      焦らず、ゆっくり、続けていくことで<br>
+      日常の動きの中に変化が出てきます。
+    </p>
+    <div class="continuation-list">
+      <div class="continuation-item"><span>🚶‍♀️</span>動きやすさ</div>
+      <div class="continuation-item"><span>🌙</span>疲れにくさ</div>
+      <div class="continuation-item"><span>🧘‍♀️</span>姿勢の変化</div>
+      <div class="continuation-item"><span>💨</span>呼吸のしやすさ</div>
     </div>
-    <div class="reason-note">
-      <strong>✅ 撮影・記録は、お申し込み時に選んでいただけます</strong><br>
-      「撮影NG」「記録NG」の方でも、もちろんご参加いただけます。<br>
-      どちらの方もお気軽にどうぞ☺️
+    <div class="continuation-note">
+      そんな変化を感じてほしくて、<br>
+      <strong>4回継続コースを用意しています。</strong><br>
+      もちろん、まずは1回だけ試してみるところからで大丈夫です☺️
     </div>
   </section>
 
+  <!-- Price -->
+  <section>
+    <div class="section-label">Price</div>
+    <div class="price-cards">
+      <div class="price-card trial">
+        <div>
+          <div class="price-card-label">
+            初回体験
+            <span class="price-badge-tag">はじめての方</span>
+          </div>
+          <div class="price-card-sub">まずは気軽に試してみてください</div>
+        </div>
+        <div class="price-card-amount">¥500</div>
+      </div>
+      <div class="price-card single">
+        <div>
+          <div class="price-card-label">単発参加</div>
+          <div class="price-card-sub">都合に合わせて参加できます</div>
+        </div>
+        <div class="price-card-amount">¥2,000</div>
+      </div>
+      <div class="price-card course">
+        <div>
+          <div class="price-card-label">
+            4回継続コース
+          </div>
+          <div class="price-card-sub">単発より¥2,000お得 / 変化を感じやすい<br>お休みした回は次回以降へ振替OK</div>
+        </div>
+        <div class="price-card-amount">¥6,000</div>
+      </div>
+    </div>
+    <p class="price-hint">まずは初回体験からどうぞ☺️　当日お支払い</p>
+    <p class="price-hint" style="margin-top:6px;">
+      お子様の体調不良などでお休みの場合は、<br>
+      次回以降へ振替できますのでご安心ください☺️
+    </p>
+  </section>
+
+  <!-- Details -->
   <section>
     <div class="section-label">Details</div>
-    <div class="detail-row">
-      <div class="d-label">参加費</div>
-      <div class="d-val">🪙 500円（ワンコイン）当日お支払い</div>
-    </div>
     <div class="detail-row">
       <div class="d-label">時間</div>
       <div class="d-val">各回 60分</div>
     </div>
     <div class="detail-row">
       <div class="d-label">対象</div>
-      <div class="d-val">産後ママ（お子様同伴歓迎）<br>複数回・全3回のご参加もOKです</div>
+      <div class="d-val">産後ママ（お子様同伴歓迎）</div>
     </div>
     <div class="detail-row">
       <div class="d-label">会場</div>
@@ -578,21 +778,48 @@
     </div>
   </section>
 
+  <!-- Voice -->
+  <section>
+    <div class="section-label">Voice</div>
+    <div class="voice-scroll">
+      <div class="voice-card">
+        <div class="voice-quote">屈伸で手が付かなかったのが、べたぁ〜っと付きました。体が柔らかくほぐれた感じがしました</div>
+        <div class="voice-who">30代・2児ママ</div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-quote">普段こどもに一生懸命だからこそ、意識してなかった自分の体に向き合う時間が取れました。自然と姿勢もよくなって、体が負担なく動かしやすくなりました</div>
+        <div class="voice-who">30代・産後数ヶ月</div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-quote">期待していた以上に楽しくて良い汗かいてリフレッシュできます。久しぶりの運動でしたが、これならもっとやりたいと思えました</div>
+        <div class="voice-who">30代ママ</div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-quote">赤ちゃんが泣いたりしたが、先生がフォローしてくださり、ちゃんと運動できました。子供も連れてみんな同じママ達なので安心でした</div>
+        <div class="voice-who">20代・産後ママ</div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-quote">遊びを通してこんなにも動けることを知りました。先生に出会えたことで運動の概念が変わりました。ワンコインでそれ以上の経験を積めました</div>
+        <div class="voice-who">産後ママ</div>
+      </div>
+    </div>
+    <p class="voice-scroll-hint">← スワイプで見る</p>
+  </section>
+
+  <!-- Form -->
   <div class="form-section">
     <div class="form-title">お申し込みはこちら</div>
     <div class="form-subtitle">
-      参加希望日・撮影についてのご意向など<br>
+      参加希望日・ご意向など<br>
       かんたんなフォームにご記入ください（約1分）
     </div>
-
     <div class="form-wrapper">
       <div style="text-align:center; padding: 24px 0 16px;">
-        <a href="https://forms.gle/9tPcLkwRV3Mm8U5w5" class="form-btn" target="_blank">
+        <a href="https://forms.gle/aCtpzomnuAUwxJ4i7" class="form-btn" target="_blank">
           申し込みフォームへ →
         </a>
       </div>
     </div>
-
     <p class="form-notice">
       ご不明な点はSNSのDMからもお気軽にどうぞ☺️<br>
       お申し込み後、詳細をご連絡いたします。
